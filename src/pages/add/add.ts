@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IonicPage, LoadingController, NavController, NavParams, ToastController} from 'ionic-angular';
+import {AlertController, IonicPage, LoadingController, NavController, NavParams, ToastController} from 'ionic-angular';
 import {BillService} from "../../providers/BillService/BillService";
 import {BaseUI} from "../../common/baseui";
 import {CookieService} from "ngx-cookie-service";
@@ -29,15 +29,23 @@ export class AddPage extends BaseUI {
               public billService: BillService,
               public loadingController: LoadingController,
               public toastController: ToastController,
+              public alertController:AlertController,
               public cookieService: CookieService,
               public navParams: NavParams) {
     super();
   }
 
-  isEmpty(){
-    return "test";
+  isNotEmpty(s){
+    return s!=null&&s.length>0;
   }
-
+  showAlert(msg) {
+    const alert = this.alertController.create({
+      title: '提示!',
+      subTitle: msg,
+      buttons: ['确认']
+    });
+    alert.present();
+  }
   ionViewDidLoad() {
     this.time = new Date().toISOString();
     this.billService.getNames().subscribe(res => {
@@ -48,6 +56,22 @@ export class AddPage extends BaseUI {
   }
 
   add() {
+    if (!this.isNotEmpty(this.title)){
+      this.showAlert("请输入标题");
+      return;
+    }
+    if (!this.isNotEmpty(this.detail)){
+      this.showAlert("请输入详细信息");
+      return;
+    }
+    if (!this.isNotEmpty(this.name)){
+      this.showAlert("请输入操作人");
+      return;
+    }
+    if (!this.isNotEmpty(this.money)){
+      this.showAlert("请输入操作金额");
+      return;
+    }
     let loading = this.showLoading(this.loadingController, "正在添加中...");
     this.billService.addBill(this.name, this.title, this.type, new Date(this.time).getTime(), this.money, this.detail).subscribe(
       res => {
