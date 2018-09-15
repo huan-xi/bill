@@ -1,0 +1,49 @@
+<!--
+  Generated template for the DetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>账单详情</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <label>标题：</label>
+      <span item-right>{{info.title}}</span>
+    </ion-item>
+    <ion-item>
+      <label>操作人：</label>
+      <span item-right>{{info.name}}</span>
+    </ion-item>
+    <ion-item>
+      <label>操作金额：</label>
+      <span item-right>{{info.money}}</span>
+    </ion-item>
+    <ion-item>
+      <label>操时间：</label>
+      <span item-right>{{info.time|date: "y-MM-dd HH:mm"}}</span>
+    </ion-item>
+    <ion-item>
+      <label>方式：</label>
+      <span item-right>{{ info.type| type }}</span>
+    </ion-item>
+    <ion-item>
+      <label>图片信息：</label>
+    </ion-item>
+    <ion-item class="detail-item">
+      <label >详细描述：</label>
+    </ion-item>
+    <ion-item class="detail-item">
+      <ion-textarea item-right class="detailInfo" rows="10" [(ngModel)]="info.detail">
+      </ion-textarea>
+    </ion-item>
+  </ion-list>
+</ion-content>

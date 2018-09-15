@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>添加账单</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>标题：</ion-label>
+      <ion-input  type="text" [(ngModel)]="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>操作人：</ion-label>
+      <ion-input  type="text" [(ngModel)]="name"></ion-input>
+
+      <ion-select item-right [(ngModel)]="name" >
+        <ion-option *ngFor="let n of names" value="{{n.name}}">{{n.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>选择方式：</ion-label>
+      <ion-select interface="popover" [(ngModel)]="type">
+        <ion-option value="0">支出</ion-option>
+        <ion-option value="1">收入</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>操作金额：</ion-label>
+      <ion-input class="money-input" type="number" [(ngModel)]="money"></ion-input>
+      <span item-right>元</span>
+    </ion-item>
+    <ion-item>
+      <ion-label>操作时间：</ion-label>
+      <ion-datetime displayFormat="YYYY-MM-DD HH:mm" cancelText="取消" doneText="确认" [(ngModel)]="time"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>图片信息：</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>详细描述：</ion-label>
+      <ion-textarea class="detailInfo" rows="10" [(ngModel)]="detail">
+      </ion-textarea>
+    </ion-item>
+      <button ion-button color="primary" block (click)="add()">添&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加</button>
+  </ion-list>
+</ion-content>
