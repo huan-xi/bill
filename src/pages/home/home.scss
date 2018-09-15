@@ -1,3 +1,51 @@
 page-home {
+.card-ios{
+  border-left:1px solid rgba(173, 173, 173, 0.7);
+  border-right:1px solid rgba(173, 173, 173, 0.7);
+}
 
+  .total{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    display: block;
+  }
+  .right{
+    float: right;
+  }
+  .select-order{
+    border-radius: 2px;
+    color: #afb5b8;
+  }
+  .search{
+    margin-top: 10px;
+    padding: 0 2px;
+    min-height: 35px;
+    border-radius: 5px;
+  }
+  .bill-info{
+    padding-left: 50px;
+    line-height: 1.8;
+  }
+  .bill-out{
+    border-left: solid 2px red;
+    border-right: solid 2px red;
+  }
+  .bill-in{
+    border-left: solid 2px green;
+    border-right: solid 2px green;
+  }
+ .add{
+    position:fixed;
+    left: 80%;
+    top: 85%;
+  }
+  .add-btn{
+    width: 35px;
+    height: 35px;
+    font-size: 20px !important;
+    border-radius:50px;
+    padding: 0;
+    background-color: #59ff41;
+  }
 }
