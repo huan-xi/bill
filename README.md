@@ -35,13 +35,23 @@
 select name,count(*) as count from bill group by name order by count desc;
 ```
 
+## 运行截图
+
+![](https://huanxi-image.oss-cn-beijing.aliyuncs.com/markdown/2B6B28F823D5FC222D29FE2FD3BBD173.png)
+
+![](https://huanxi-image.oss-cn-beijing.aliyuncs.com/markdown/847D561AECCC42350FAEE457A52421DF.png)
+
+![](https://huanxi-image.oss-cn-beijing.aliyuncs.com/markdown/CCCB045FB8C969229C19D5A8EC25CB73.png)
+
+![](https://huanxi-image.oss-cn-beijing.aliyuncs.com/markdown/F48BDDDF5CB7943BCB6794312EEC9FC6.png)
+
 ## 资源外联
 
 >  因为服务器只有1M带宽，而这ionic项目的vendor.js有5M，客户端的话已经下载了，如果第一次网页访问必然会下载几分钟，而且会造成阻塞，所以将此文件外联至阿里云oss服务器
 
 ## 部署简介
 
-> ​	部署十分简单，因为是前后端分离，直接将静态文件部署至nginx即可，然后将后端API加入nginx的API网关（将/bill/开头的地址反向代理给7000端口的Tomcat）中，解决js跨域访问的问题，响应头中添加Access-Control-Allow-Origin：your domain，即可。
+> 	部署十分简单，因为是前后端分离，直接将静态文件部署至nginx即可，然后将后端API加入nginx的API网关（将/bill/开头的地址反向代理给7000端口的Tomcat）中，解决js跨域访问的问题，响应头中添加Access-Control-Allow-Origin：your domain，即可。
 >
 > ***nginx server配置示例：***
 
